@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>
+      Retrieve Timezone Information using Geographical Coordinates and Address
+    </title>
+  </head>
+  <body>
+    <main>
+      <div class="headings">
+        <h1>TimeZone API</h1>
+        <h1>Your Current Time Zone</h1>
+      </div>
+      <div class="geolocation_contents" style="border: 2px solid black">
+        <p>Name Of Time Zone:</p>
+        <p>
+          <span>Lat:</span
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+            >Long:</span
+          >
+        </p>
+
+        <p>Offset STD:</p>
+        <p>Offset STD Seconds:</p>
+        <p>Offset DST:</p>
+        <p>Offset DST Seconds:</p>
+        <p>Country:</p>
+        <p>Postcode:</p>
+        <p>City:</p>
+      </div>
+    </main>
+
+    <section class="input-section">
+      <div class="Headings">
+        <h1>Enter Address</h1>
+        <input id="input-field" type="text" placeholder="Address" />
+      </div>
+      <button id="btn" onclick="getTimezoneByAddress() ">Submit</button>
+
+      <div id="output">
+        <div class="headings" style="margin-top: 40px">
+          <h1>Your result</h1>
+        </div>
+        <div class="geolocation_contents" style="border: 2px solid white">
+          <p id="Tzone">Name Of Time Zone:</p>
+          <p>
+            <span id="lati">Lat:</span
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              id="longi"
+              >Long:</span
+            >
+          </p>
+
+          <p id="Offset-STD">Offset STD:</p>
+          <p id="Offset-STD-Seconds">Offset STD Seconds:</p>
+          <p id="Offset-DSt">Offset DST:</p>
+          <p id="Offset-DST-Seconds">Offset DST Seconds:</p>
+          <p id="Countryy">Country:</p>
+          <p id="Post-code">Postcode:</p>
+          <p id="cityy">City:</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+
+
+    <!-- <script>
+      const apiKey = "YOUR_API_KEY"; 
+
+      
+      function fetchUserTimezone(lat, lon) {
+        fetch(
+          `https://api.geoapify.com/v1/geocode/search?text=38%20Upper%20Montagu%20Street%2C%20Westminster%20W1H%201LJ%2C%20United%20Kingdom&apiKey=e4b62587dab94b78b73b98eccd76326b`
+        )
+          .then((resp) => resp.json())
+          .then((result) => {
+            if (result.features && result.features.length) {
+
+                const properties = result.features[0].properties;
+
+              const timezone = result.features[0].properties.timezone.name;
+              document.getElementById( "Tzone" ).innerHTML = `Name Of Time Zone:  ${timezone}`;
+
+              const offsetSTD = properties.timezone.offset_std;
+              document.getElementById('Offset-STD').innerHTML =`Offset STD:  ${offsetSTD}`;
+
+              const offsetSTDSeconds = properties.timezone.offset_std_sec;
+              document.getElementById('Offset-STD-Seconds').innerHTML =`Offset STD Seconds:  ${offsetSTDSeconds}`;
+
+              const offsetDST = properties.timezone.offset_dst;
+              document.getElementById('Offset-DSt').innerHTML =`Offset DSt:  ${offsetDST}`;
+
+              const offsetDSTSeconds = properties.timezone.offset_dst_sec;
+              document.getElementById('Offset-DST-Seconds').innerHTML =`Offset DST Seconds:  ${offsetDSTSeconds}`;
+
+              const country = properties.country;
+              document.getElementById('Countryy').innerHTML =`Country:  ${country}`;
+
+              const postcode = properties.postcode;
+              document.getElementById('Post-code').innerHTML =`Postcode:  ${postcode}`;
+
+              const city = properties.city;
+              document.getElementById('cityy').innerHTML =`City:  ${city}`;
+
+              const latitude = result.features[0].geometry.coordinates[1];
+              document.getElementById('lati').innerHTML =`Lat:  ${latitude}`;
+
+              const longitude = (result.features[0].geometry.coordinates[0]);
+              document.getElementById('longi').innerHTML =`Long:  ${longitude}`;
+
+            } else {
+              document.getElementById("output").innerHTML =
+                "No timezone information found for your location.";
+            }
+          })
+          .catch((error) => {
+            document.getElementById(
+              "output"
+            ).innerHTML = `Error fetching timezone: ${error.message}`;
+          });
+      }
+
+      // Function to get user's current location and fetch timezone
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            fetchUserTimezone(lat, lon);
+          });
+        } else {
+          document.getElementById("output").innerHTML =
+            "Please enter an address!";
+        }
+      }
+
+      // Automatically fetch and display user's current timezone on page load
+      getLocation();
+    </script> -->
+
+
+  </body>
+</html>
